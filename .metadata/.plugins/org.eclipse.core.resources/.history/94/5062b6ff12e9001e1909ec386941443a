@@ -1,0 +1,13 @@
+package base;
+
+
+public class Main {
+	public static void main(String[] args) {
+		MySimpleLinkedList<Integer> lista = new MySimpleLinkedList<Integer>();
+	
+		lista.insertFront(10);
+		lista.insertFront(20);
+	
+		System.out.println(lista.extractFront());
+	}
+}

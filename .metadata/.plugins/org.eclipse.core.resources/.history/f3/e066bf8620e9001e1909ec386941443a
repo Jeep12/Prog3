@@ -1,0 +1,84 @@
+package base;
+
+public class MySimpleLinkedList<T> {
+	private Node<T> first;
+	private int _size;
+
+	public MySimpleLinkedList() {
+		this.first = null;
+		this._size = 0;
+
+	}
+
+	public void insertFront(T info) {
+		Node<T> tmp = new Node<T>(info, null);
+		tmp.setNext(this.first);
+		this.first = tmp;
+
+		this._size += 1;
+	}
+
+	public void insertLast(T info) {
+		Node<T> aux = this.first;
+		if (aux == null) {
+			insertFront(info);
+		} else {
+			while (aux.getNext() != null) {
+				aux = aux.getNext();
+			}
+			Node<T> tmp = new Node<T>(info, null);
+			aux.setNext(tmp);
+			_size++;
+		}
+
+	}
+
+	public T extractFront() {
+
+		T retorno = null;
+		if (_size != 0) {
+			retorno = this.first.getInfo();
+			this.first = this.first.getNext();
+			this._size--;
+		}
+
+		return retorno;
+	}
+
+	public boolean isEmpty() {
+
+		return this.first == null;
+	}
+
+	public T get2(int index) {
+		Node<T> aux = this.first;
+
+		int contador = 0;
+		
+			System.out.println(this._size);
+			while (aux != null && contador < index) {
+				System.out.println(contador);
+				contador++;
+			}
+
+		
+		return null;
+
+	}
+
+	public T get(int index) {
+
+		return null;
+
+	}
+
+	public int size() {
+		return this._size;
+	}
+
+	@Override
+	public String toString() {
+		return "";
+	}
+
+}
