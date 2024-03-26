@@ -2,14 +2,14 @@ package base;
 
 import java.util.Iterator;
 
-public class MySimpleLinkedList<T> {
+public class MySimpleLinkedList<T> implements Iterable<T> {
 	private Node<T> first;
 	private int _size;
 
+	
 	public MySimpleLinkedList() {
 		this.first = null;
 		this._size = 0;
-
 	}
 
 	
@@ -93,12 +93,24 @@ public class MySimpleLinkedList<T> {
 		return texto;
 	}
 
-	
-	public int indexOf(T info) {
-		return -1;
+	//Preguntar si usar el equals o ==
+	// T puede ser cualquier cosa
+	public int indexOf(T search) {
+		Node<T> aux = this.first;
+		int retorno = -1;
+		int contador = 0;
+		while (contador< this._size) {
+			if(aux.getInfo().equals(search)) {
+				retorno = contador;
+			}
+			aux = aux.getNext();
+			contador++;
+			
+		}
+		return retorno;
 	}
 
-
+	
 	public Iterator<T> iterator() {
 		return new MyIterator<T>(first);
 	}
